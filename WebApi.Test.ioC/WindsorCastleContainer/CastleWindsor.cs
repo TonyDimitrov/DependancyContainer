@@ -10,13 +10,12 @@ namespace WebApi.Test.ioC.WindsorCastleContainer
 
         public void Initialize()
         {
-            _container.Install(new IWindsorInstaller[] { new WindsorApiControllerInstaller() });
+            _container.Install(new IWindsorInstaller[] { 
+                new WindsorApiControllerInstaller()
+            });
             GlobalConfiguration.Configuration.DependencyResolver = new DependencyResolver(_container.Kernel);
         }
 
-        public void ResolveDependancies()
-        {
-        }
         public void RegisterTransient<TInt, TImpl>()
             where TInt : class
             where TImpl : TInt

@@ -149,6 +149,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DTO\UpdateValueDTO.cs" />
+    <Compile Include="ExHandler\ExceptionMapper.cs" />
+    <Compile Include="ExHandler\GlobalExceptionHandler.cs" />
+    <Compile Include="ExHandler\ICustomLogger.cs" />
+    <Compile Include="ExHandler\SerilogLoger.cs" />
+    <Compile Include="ExHandler\SetExceptionHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
