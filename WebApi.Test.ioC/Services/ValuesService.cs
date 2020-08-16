@@ -39,7 +39,9 @@ namespace WebApi.Test.ioC.Services
 
         public bool Update(UpdateValueDTO update)
         {
-            if (this.repository.Count >= update.AtIndex || update.AtIndex < 0)
+            if (this.repository.Count == 0
+                || this.repository.Count <= update.AtIndex
+                || update.AtIndex < 0)
             {
                 return false;
             }

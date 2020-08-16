@@ -5,6 +5,7 @@ using WebApi.Test.ioC.Services;
 
 namespace WebApi.Test.ioC.Controllers
 {
+    [RoutePrefix("api/values")]
     public class ValuesController : ApiController
     {
         private readonly IValuesService valuesService;
@@ -14,19 +15,19 @@ namespace WebApi.Test.ioC.Controllers
             this.valuesService = valuesService;
         }
 
-        // GET api/values
+        [HttpGet]
         public IEnumerable<string> Get()
         {
             return this.valuesService.All();
         }
 
-        // GET api/values/5
+        [HttpGet]
+        [Route("count")]
         public int Count()
         {
             return this.valuesService.Count();
         }
 
-        // POST api/values
         public IHttpActionResult Post([FromBody] string value)
         {
             this.valuesService.Add(value);
@@ -34,7 +35,6 @@ namespace WebApi.Test.ioC.Controllers
             return this.Ok();
         }
 
-        // PUT api/values/5
         public IHttpActionResult Put([FromBody] UpdateValueDTO update)
         {
 
@@ -46,7 +46,6 @@ namespace WebApi.Test.ioC.Controllers
             return this.Ok(203);
         }
 
-        // DELETE api/values/5
         public IHttpActionResult Delete(string value)
         {
             if (!this.valuesService.Delete(value))

@@ -11,7 +11,7 @@ namespace WebApi.Test.ioC
             // Web API configuration and services
             CastleWindsor ioC = new CastleWindsor();
             ioC.Initialize();
-            ioC.RegisterTransient<IValuesService, ValuesService>();
+            ioC.RegisterSingleton<IValuesService, ValuesService>();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
